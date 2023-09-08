@@ -1,0 +1,13 @@
+name: Database Migration
+
+on:
+  push:
+    branches:
+      - "dev"
+
+jobs:
+  db-migration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: migrate
+        run: echo "Migrate"
