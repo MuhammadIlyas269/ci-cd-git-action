@@ -2,12 +2,20 @@ name: Database Migration
 
 on:
   push:
-    branches:
-      - "dev"
+    branches: [dev]
 
 jobs:
   db-migration:
     runs-on: ubuntu-latest
+
     steps:
       - name: migrate
         run: echo "Migrate"
+      - uses: actions/checkout@2
+      - name: Use Nodejs 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: [18.x]
+          cache: "npm"
+
+      - run: npm test
